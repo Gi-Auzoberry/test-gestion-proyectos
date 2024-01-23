@@ -9,7 +9,7 @@ const ProjectContainer = () => {
   const { projects } = useContext(ProjectContext);
 
   return (
-    <>
+    <div>
       <div className="subheader">
         <h3>My Projects</h3>
         <Link to="/form" className="btn-add">  + Add Project </Link>
@@ -29,7 +29,7 @@ const ProjectContainer = () => {
           You do not have any projects added yet. Click on the + Add Project button to create one.</td></tr>}
         </tbody>
       </table>
-    </>
+    </div>
   )
 }
 
