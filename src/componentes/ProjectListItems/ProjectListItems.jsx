@@ -24,7 +24,7 @@ const ProjectListItems = ({ projects }) => {
           <td className='p-name'>{project.projectName}<br /> <span className='p-date'>Creation date: {project.submittedAt}</span></td>
           <td className='p-manager'>{project.manager}</td>
 
-          <td className='p-dev'><img src={project.devs.img} alt={project.devs.name} /> {project.devs.name}</td>
+          <td className='p-dev'><img src={project.devs.img}/> {project.devs}</td>
 
           <td className='status'>{project.status}</td>
           <td id='dot-menu'> <VscKebabVertical onClick={() => setMenu((prev) => !prev)} /> </td>

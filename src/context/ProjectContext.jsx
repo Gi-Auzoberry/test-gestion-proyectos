@@ -5,24 +5,27 @@ export const ProjectContext = createContext();
 
 export const ProjectProvider = ({ children }) => {
 
+  const [managers, setManagers] = useState([
+    { img: "./img/", name: "Walter Cosani" },
+    { img: "./img/", name: "Manager 2" },
+  ]);
+  const [devs, setDevs] = useState([
+    { img: "../img/dev1.jpg", name: "Ignacio Truffa" },
+    { img: "../img/dev2.jpg", name: "Dev 2" },
+    { img: "../img/dev2.jpg", name: "Dev 3" }
+  ]);
+
   const [projects, setProjects] = useState([]);
   const [currentProject, setCurrentProject] = useState(null);
 
-  //Almacena los datos del projecto
   const addProject = (project) => {
     setProjects([...projects, project]);
   };
   const updateProject = (updatedProject) => {
-    setProjects(projects.map(project => 
+    setProjects(projects.map(project =>
       project.id === updatedProject.id ? updatedProject : project
     ));
   };
-  /*const editProject = (id, newData) => {
-    const index = projects.findIndex((project) => project.id === id)
-    projects[index] = { ...projects[index], ...newData }
-    setProjects([...projects])
-  };*/
-
   const deleteProject = (id) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -47,7 +50,7 @@ export const ProjectProvider = ({ children }) => {
   };
 
   return (
-    <ProjectContext.Provider value={{ projects, addProject, updateProject, deleteProject, currentProject, setCurrentProject }}>
+    <ProjectContext.Provider value={{ managers, devs, projects, addProject, updateProject, deleteProject, currentProject, setCurrentProject }}>
       {children}
     </ProjectContext.Provider>
   );

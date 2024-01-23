@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ProjectProvider } from './context/ProjectContext';
 import NavBar from './componentes/NavBar/NavBar';

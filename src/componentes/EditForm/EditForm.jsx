@@ -5,20 +5,10 @@ import { FiArrowLeft } from "react-icons/fi";
 
 const EditForm = () => {
 
-    const managers = [
-        { img: "./img/", name: "Walter Cosani" },
-        { img: "./img/", name: "Manager 2" },
-    ];
-    const devs = [
-        { img: "../img/dev1.jpg", name: "Ignacio Truffa" },
-        { img: "../img/dev2.jpg", name: "Dev 2" },
-        { img: "../img/dev2.jpg", name: "Dev 3" }
-    ];
-  
+    const { managers, devs } = useContext(ProjectContext);
     const navigate = useNavigate();
-
     const { currentProject, updateProject } = useContext(ProjectContext)
-    const [form, setForm] = useState( currentProject || {
+    const [form, setForm] = useState(currentProject || {
         projectName: '',
         projectDescription: '',
         manager: '',
@@ -42,7 +32,7 @@ const EditForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        updateProject(form); // Actualiza el proyecto existente con los nuevos datos del formulario
+        updateProject(form);
         navigate('/');
     };
 
@@ -77,14 +67,14 @@ const EditForm = () => {
                         <label htmlFor=""> Assigned to </label>
                         <select name="" id="devs" value={form.devs} onChange={handleChange}>
                             <option value="" disabled> Select a person </option>
-                            {devs.map((dev, img, index) => (
+                            {devs.map((dev, index) => (
                                 <option key={index} value={dev.name}>{dev.name}</option>
                             ))}
                         </select>
                     </div>
                     <div>
                         <label htmlFor=""> Status </label>
-                        <select name="" id="status" value={form.status}  onChange={handleChange}>
+                        <select name="" id="status" value={form.status} onChange={handleChange}>
                             <option value=""> Enabled </option>
                             <option value=""> Disabled </option>
                         </select>
@@ -97,6 +87,3 @@ const EditForm = () => {
 }
 
 export default EditForm
-
-/* POR AHORA QUITO ESTE ERROR
-{error && <h4 className="error"> {error} </h4>} */
