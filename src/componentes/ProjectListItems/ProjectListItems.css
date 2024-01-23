@@ -58,8 +58,8 @@
     }
     #dot-menu{
         position: absolute;
-        top: 13.5rem;
-        right: 4rem;
+        right: 2rem ;
+        padding: 5px;
     }
     .p-dev { 
         order: 2;
