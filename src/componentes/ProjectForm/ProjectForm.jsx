@@ -33,11 +33,11 @@ const ProjectForm = () => {
             setError('Please complete all fields before submitting');
             return;
         }
-        setForm({
+        const finalProject = {
             ...form,
             submittedAt: new Date().toLocaleString().toLowerCase()
-        });
-        addProject(form);
+        };
+        addProject(finalProject);
         navigate('/');
     };
 
@@ -53,18 +53,18 @@ const ProjectForm = () => {
                 <form onSubmit={handleSubmit} id="p-form">
                     <div>
                         <label htmlFor=""> Project Name </label>
-                        <input type="text" id="projectName" /*value={form.projectName}*/ onChange={handleChange} />
+                        <input type="text" id="projectName" onChange={handleChange} />
                     </div>
                     <div>
                         <label htmlFor=""> Description </label>
-                        <input type="text" id="projectDescription" /*value={form.projectDescription}*/ onChange={handleChange} />
+                        <input type="text" id="projectDescription" onChange={handleChange} />
                     </div>
                     <div>
                         <label htmlFor=""> Project Manager </label>
                         <select name="" id="manager" value={form.manager} onChange={handleChange}>
                             <option value="" disabled selected> Select a person </option>
                             {managers.map((manager, index) => (
-                                <option key={index} /*value={manager.name}*/>{manager.name}</option>
+                                <option key={index}>{manager.name}</option>
                             ))}
                         </select>
                     </div>
@@ -73,7 +73,7 @@ const ProjectForm = () => {
                         <select name="" id="devs" value={form.devs} onChange={handleChange}>
                             <option value="" disabled selected> Select a person </option>
                             {devs.map((dev, index) => (
-                                <option key={index} /*value={dev.name}*/>{dev.name}</option>
+                                <option key={index} >{dev.name}</option>
                             ))}
                         </select>
                     </div>
