@@ -35,6 +35,7 @@ const ProjectForm = () => {
         }
         const finalProject = {
             ...form,
+            id: Date.now(),
             submittedAt: new Date().toLocaleString().toLowerCase()
         };
         addProject(finalProject);

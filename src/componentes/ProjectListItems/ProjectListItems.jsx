@@ -6,6 +6,8 @@ import DropDownMenu from '../DropDownMenu/DropDownMenu';
 import './ProjectListItems.css';
 
 const ProjectListItems = ({ projects }) => {
+  
+  console.log(projects);
 
   const navigate = useNavigate();
 
@@ -37,6 +39,9 @@ const ProjectListItems = ({ projects }) => {
       })}
     </div>
   );
+
+ 
+
 };
 
 export default ProjectListItems;
