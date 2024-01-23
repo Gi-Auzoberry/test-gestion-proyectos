@@ -33,7 +33,11 @@
     width: 25%;
 }
 
-tbody .no-p {
-    padding: 10rem;
-    
-}
+.no-project{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+} 

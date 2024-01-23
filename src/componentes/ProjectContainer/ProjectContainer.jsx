@@ -25,7 +25,8 @@ const ProjectContainer = () => {
           </tr>
         </thead>
         <tbody>
-        {projects.length > 0 ? <ProjectListItems projects={projects} /> : <tr><td className="no-p">You do not have any projects added yet</td></tr>}
+        {projects.length > 0 ? <> <ProjectListItems projects={projects} /> </> : <tr className="no-project"><td colSpan="5" className="no-p">
+          You do not have any projects added yet. Click on the + Add Project button to create one.</td></tr>}
         </tbody>
       </table>
     </>
@@ -33,14 +34,3 @@ const ProjectContainer = () => {
 }
 
 export default ProjectContainer;
-
-
-/*{projects.length > 0 ? projects.map((project) => (
-  <> 
-    <ProjectListItems key={project.id} project={project} /> 
-  </>
-)) : (
-  <tr>
-    <td colSpan="5" className="no-p">You don't have any projects yet. Click on the + Add Project button to create one.</td> 
-  </tr>
-)}*/
