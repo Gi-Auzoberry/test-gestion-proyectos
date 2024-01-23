@@ -12,7 +12,11 @@ export const ProjectProvider = ({ children }) => {
   const addProject = (project) => {
     setProjects([...projects, project]);
   };
-
+  const updateProject = (updatedProject) => {
+    setProjects(projects.map(project => 
+      project.id === updatedProject.id ? updatedProject : project
+    ));
+  };
   /*const editProject = (id, newData) => {
     const index = projects.findIndex((project) => project.id === id)
     projects[index] = { ...projects[index], ...newData }
@@ -43,7 +47,7 @@ export const ProjectProvider = ({ children }) => {
   };
 
   return (
-    <ProjectContext.Provider value={{ projects, addProject, deleteProject, currentProject, setCurrentProject }}>
+    <ProjectContext.Provider value={{ projects, addProject, updateProject, deleteProject, currentProject, setCurrentProject }}>
       {children}
     </ProjectContext.Provider>
   );
