@@ -24,7 +24,7 @@ const ProjectContainer = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="p-body">
         {projects.length > 0 ? <> <ProjectListItems projects={projects} /> </> : <tr className="no-project"><td colSpan="5" className="no-p">
           You do not have any projects added yet. Click on the + Add Project button to create one.</td></tr>}
         </tbody>

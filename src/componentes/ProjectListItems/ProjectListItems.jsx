@@ -17,8 +17,8 @@ const ProjectListItems = ({ projects }) => {
       {projects.map((project, index) => (
         <tr key={index} className='items'>
           <td className='p-name'>{project.projectName}<br /> <span className='p-date'>Creation date: {project.submittedAt}</span></td>
-          <td>{project.manager}</td>
-          <td>{project.devs}</td>
+          <td className='p-manager'>{project.manager}</td>
+          <td className='p-dev'> {project.img} {project.devs}</td>
           <td className='status'>{project.status}</td>
           <td id='dot-menu'> <VscKebabVertical onClick={() => setMenu((prev) => !prev)} /> </td>
 
@@ -31,3 +31,4 @@ const ProjectListItems = ({ projects }) => {
 };
 
 export default ProjectListItems;
+

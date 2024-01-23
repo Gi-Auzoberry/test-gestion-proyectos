@@ -13,9 +13,9 @@ const ProjectForm = () => {
         { img: "./img/", name: "Manager 2" },
     ];
     const devs = [
-        { img: "./img/", name: "Ignacio Truffa" },
-        { img: "./img/", name: "Dev 2" },
-        { img: "./img/", name: "Dev 3" }
+        { img: "./img/dev1.jpg", name: "Ignacio Truffa" },
+        { img: "./img/dev2.jpg", name: "Dev 2" },
+        { img: "./img/dev2.jpg", name: "Dev 3" }
     ];
 
     const navigate = useNavigate();
