@@ -1,5 +1,4 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ProjectContext } from '../../context/ProjectContext';
 import { VscKebabVertical } from "react-icons/vsc";
 import DropDownMenu from '../DropDownMenu/DropDownMenu';
@@ -9,8 +8,6 @@ const ProjectListItems = ({ projects }) => {
 
   const [menu, setMenu] = useState(false);
   const { editProject, deleteProject } = useContext(ProjectContext);
-  const navigate = useNavigate();
-
 
   return (
     <div className="item-container">
@@ -29,6 +26,5 @@ const ProjectListItems = ({ projects }) => {
     </div>
   );
 };
-
+                       
 export default ProjectListItems;
-

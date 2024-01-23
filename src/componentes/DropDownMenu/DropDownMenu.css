@@ -32,3 +32,11 @@
 .opt-menu li:hover {
     background-color: #dadada4f;
 }
+
+@media screen and (max-width: 700px) {
+    .drop-menu {
+        top: 15rem;
+        right: 4.6em;
+        width: 10rem;
+    }
+}
