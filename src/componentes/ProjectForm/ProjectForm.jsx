@@ -13,9 +13,9 @@ const ProjectForm = () => {
         { img: "./img/", name: "Manager 2" },
     ];
     const devs = [
-        { img: "./img/dev1.jpg", name: "Ignacio Truffa" },
-        { img: "./img/dev2.jpg", name: "Dev 2" },
-        { img: "./img/dev2.jpg", name: "Dev 3" }
+        { img: "../img/dev1.jpg", name: "Ignacio Truffa" },
+        { img: "../img/dev2.jpg", name: "Dev 2" },
+        { img: "../img/dev2.jpg", name: "Dev 3" }
     ];
 
     const navigate = useNavigate();
@@ -99,7 +99,7 @@ const ProjectForm = () => {
                         <label htmlFor=""> Assigned to </label>
                         <select name="" id="devs" value={form.devs} onChange={handleChange}>
                             <option value="" disabled> Select a person </option>
-                            {devs.map((dev, index) => (
+                            {devs.map((dev, img, index) => (
                                 <option key={index} value={dev.name}>{dev.name}</option>
                             ))}
                         </select>
