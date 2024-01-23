@@ -71,7 +71,7 @@ const ProjectForm = () => {
     return (
         <>
             <div className="subheader-form">
-                <Link className="back" to="/">
+                <Link className="back-icon" to="/">
                     <FiArrowLeft /> Back
                 </Link>
                 <h3> Add Project </h3>
