@@ -1,0 +1,39 @@
+.subheader {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.btn-add{
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #F5222D;
+    color: white;
+}
+.projects-container{ 
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+.table-header {
+    padding: 20px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.table-header tr{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.info{
+    width: 25%;
+}
+
+tbody .no-p {
+    padding: 10rem;
+    
+}
