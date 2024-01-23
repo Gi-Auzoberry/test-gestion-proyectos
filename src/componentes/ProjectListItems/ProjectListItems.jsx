@@ -7,8 +7,6 @@ import './ProjectListItems.css';
 
 const ProjectListItems = ({ projects }) => {
   
-  console.log(projects);
-
   const navigate = useNavigate();
 
   const [menu, setMenu] = useState(false);
