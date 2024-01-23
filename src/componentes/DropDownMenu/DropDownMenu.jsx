@@ -7,9 +7,8 @@ const DropDownMenu = ({onEdit, onDelete}) => {
   return (
     <div className='drop-menu'>
         <ul className='opt-menu'>
-            <li onClick={onEdit}> <FaRegEdit /> Edit</li>
-            <li onClick={onDelete}> <MdDeleteOutline /> Delete
-            </li>
+            <li onClick={onEdit}> <FaRegEdit /> Edit </li>
+            <li onClick={onDelete}> <MdDeleteOutline /> Delete </li>
         </ul>
     </div>
   )
