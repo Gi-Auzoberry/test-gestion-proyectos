@@ -4,6 +4,7 @@ import { ProjectProvider } from './context/ProjectContext';
 import NavBar from './componentes/NavBar/NavBar';
 import ProjectContainer from './componentes/ProjectContainer/ProjectContainer';
 import ProjectForm from './componentes/ProjectForm/ProjectForm';
+import EditForm from './componentes/EditForm/EditForm';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={< ProjectContainer />} />
             <Route path='/form' element={< ProjectForm />} />
+            <Route path='/edit' element={< EditForm />} />
           </Routes>
         </ProjectProvider>
       </BrowserRouter>

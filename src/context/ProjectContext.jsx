@@ -4,14 +4,20 @@ import Swal from "sweetalert2";
 export const ProjectContext = createContext();
 
 export const ProjectProvider = ({ children }) => {
+
   const [projects, setProjects] = useState([]);
+  const [currentProject, setCurrentProject] = useState(null);
 
+  //Almacena los datos del projecto
+  const addProject = (project) => {
+    setProjects([...projects, project]);
+  };
 
-  const editProject = (id, newData) => {
+  /*const editProject = (id, newData) => {
     const index = projects.findIndex((project) => project.id === id)
     projects[index] = { ...projects[index], ...newData }
     setProjects([...projects])
-  };
+  };*/
 
   const deleteProject = (id) => {
     Swal.fire({
@@ -37,7 +43,7 @@ export const ProjectProvider = ({ children }) => {
   };
 
   return (
-    <ProjectContext.Provider value={{ projects, setProjects, editProject, deleteProject }}>
+    <ProjectContext.Provider value={{ projects, addProject, deleteProject, currentProject, setCurrentProject }}>
       {children}
     </ProjectContext.Provider>
   );

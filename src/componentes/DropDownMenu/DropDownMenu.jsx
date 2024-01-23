@@ -2,7 +2,13 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import './DropDownMenu.css';
 
-const DropDownMenu = ({onEdit, onDelete}) => {
+const DropDownMenu = ({ onEdit, onDelete}) => {
+
+ /* SI ESTA OPCION VUELVE, AGREGAR PROJECT COMO PROP 
+ const handleEdit = () => {
+    onEdit();
+    setCurrentProject(project);
+  }*/
 
   return (
     <div className='drop-menu'>

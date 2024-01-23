@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ProjectContext } from "../../context/ProjectContext";
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { FiArrowLeft } from "react-icons/fi";
 import './ProjectForm.css';
 
 
 const ProjectForm = () => {
+
+    const { addProject } = useContext(ProjectContext);
 
     const managers = [
         { img: "./img/", name: "Walter Cosani" },
@@ -18,26 +20,35 @@ const ProjectForm = () => {
         { img: "../img/dev2.jpg", name: "Dev 3" }
     ];
 
-    const navigate = useNavigate();
-    const { setProjects, editProject, deleteProject } = useContext(ProjectContext);
+   const navigate = useNavigate();
+   // const { setProjects, editProject, deleteProject } = useContext(ProjectContext);
     const [error, setError] = useState('');
-    const { id } = useParams();
-    const { projects } = useContext(ProjectContext);
+   // const { id } = useParams();
+   // const { projects } = useContext(ProjectContext);
+    
     const [form, setForm] = useState({
         projectName: '',
-        submittedAt: '',
         projectDescription: '',
         manager: '',
         devs: '',
         status: 'Enabled',
+        submittedAt: '',
+
     });
 
-    useEffect(() => {
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.id]: e.target.value,
+        });
+    };
+
+    /*useEffect(() => {
         const project = projects.find((project) => project.id === id)
         if (project) {
             setForm(project)
         }
-    }, [id, projects]);
+    }, [id, projects]);*/
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -47,26 +58,17 @@ const ProjectForm = () => {
             return;
         }
 
-        setProjects((prevProjects) => [...prevProjects, { ...form, id: uuidv4(), submittedAt: new Date().toLocaleString().toLowerCase() }]);
-
-        setForm({
-            projectName: '',
-            submittedAt: '',
-            projectDescription: '',
-            manager: '',
-            devs: '',
-            status: '',
-        });
-        navigate('/');
-    };
-
-    const handleChange = (e) => {
         setForm({
             ...form,
-            [e.target.id]: e.target.value,
+            submittedAt: new Date().toLocaleString().toLowerCase()
         });
-    };
+        
+        addProject(form);
+        navigate('/');
 
+        // setProjects((prevProjects) => [...prevProjects, { ...form, id: uuidv4(), submittedAt: new Date().toLocaleString().toLowerCase() }]);
+
+    };
 
     return (
         <>
@@ -80,33 +82,33 @@ const ProjectForm = () => {
                 <form onSubmit={handleSubmit} id="p-form">
                     <div>
                         <label htmlFor=""> Project Name </label>
-                        <input type="text" id="projectName" value={form.projectName} onChange={handleChange} />
+                        <input type="text" id="projectName" /*value={form.projectName}*/ onChange={handleChange} />
                     </div>
                     <div>
                         <label htmlFor=""> Description </label>
-                        <input type="text" id="projectDescription" value={form.projectDescription} onChange={handleChange} />
+                        <input type="text" id="projectDescription" /*value={form.projectDescription}*/ onChange={handleChange} />
                     </div>
                     <div>
                         <label htmlFor=""> Project Manager </label>
-                        <select name="" id="manager" value={form.manager} onChange={handleChange}>
-                            <option value="" disabled> Select a person </option>
+                        <select name="" id="manager" /*value={form.manager}*/ onChange={handleChange}>
+                            <option value="" disabled selected> Select a person </option>
                             {managers.map((manager, index) => (
-                                <option key={index} value={manager.name}>{manager.name}</option>
+                                <option key={index} /*value={manager.name}*/>{manager.name}</option>
                             ))}
                         </select>
                     </div>
                     <div>
                         <label htmlFor=""> Assigned to </label>
-                        <select name="" id="devs" value={form.devs} onChange={handleChange}>
-                            <option value="" disabled> Select a person </option>
-                            {devs.map((dev, img, index) => (
-                                <option key={index} value={dev.name}>{dev.name}</option>
+                        <select name="" id="devs" /*value={form.devs}*/ onChange={handleChange}>
+                            <option value="" disabled selected> Select a person </option>
+                            {devs.map((dev, index) => (
+                                <option key={index} /*value={dev.name}*/>{dev.name}</option>
                             ))}
                         </select>
                     </div>
                     <div>
                         <label htmlFor=""> Status </label>
-                        <select name="" id="status">
+                        <select name="" id="status" onChange={handleChange}>
                             <option value=""> Enabled </option>
                             <option value=""> Disabled </option>
                         </select>
